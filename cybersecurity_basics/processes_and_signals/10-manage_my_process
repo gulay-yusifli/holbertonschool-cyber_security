@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Init script to manage manage_my_process (start/stop/restart)
+# Init script for manage_my_process
 
 PID_FILE="/tmp/my_process.pid"
 
@@ -18,8 +18,8 @@ stop() {
 }
 
 restart() {
-    stop
-    start
+    stop > /dev/null 2>&1
+    start > /dev/null 2>&1
     echo "manage_my_process restarted"
 }
 
