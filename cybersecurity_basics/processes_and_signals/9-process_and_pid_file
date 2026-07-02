@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
+# Create PID file and handle signals
 
-# Save PID
 echo $$ > /tmp/myscript.pid
 
-# SIGINT (Ctrl+C)
 trap 'echo "Y U no love me?!";' SIGINT
-
-# SIGTERM
 trap 'echo "I hate the kill command"; rm -f /tmp/myscript.pid; exit' SIGTERM
-
-# SIGQUIT
 trap 'rm -f /tmp/myscript.pid; exit' SIGQUIT
 
 while true; do
